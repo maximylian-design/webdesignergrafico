@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maximylian Nascimento | Designer Gráfico & Web Designer</title>
+<style>
+:root{--gold:#ffc400;--gold2:#fff0a3;--orange:#ff8a00;--line:rgba(255,196,0,.30)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-5;background:linear-gradient(rgba(0,0,0,.20),rgba(0,0,0,.86)),url("assets/fundo.png") center/cover fixed no-repeat}
+body::after{content:"";position:fixed;inset:0;z-index:-4;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(255,196,0,.14),transparent 30%),radial-gradient(circle at 88% 42%,rgba(255,110,0,.12),transparent 28%)}
+
+.preloader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#000;transition:.75s}
+.preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-box{text-align:center;width:min(420px,82vw)}
+.loader-box img{width:min(260px,70vw);filter:drop-shadow(0 0 32px rgba(255,196,0,.8));animation:loaderLogo 1.8s ease-in-out infinite}
+@keyframes loaderLogo{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.loader-text{margin-top:22px;color:var(--gold);font-size:12px;letter-spacing:.30em;font-weight:900}
+.loader-bar{height:6px;margin-top:15px;border-radius:999px;overflow:hidden;border:1px solid rgba(255,196,0,.35);background:rgba(255,255,255,.08)}
+.loader-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--gold2),var(--gold));box-shadow:0 0 24px var(--gold);animation:load 1.8s ease forwards}
+@keyframes load{to{width:100%}}
+
+.particles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.particles span{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:floatDust linear infinite}
+@keyframes floatDust{0%{transform:translateY(105vh) scale(.4);opacity:0}12%{opacity:.75}82%{opacity:.55}100%{transform:translateY(-10vh) scale(1.25);opacity:0}}
+
+header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 7%;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(15,10,0,.70),rgba(0,0,0,.88));border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff}
+.brand img{width:132px;filter:drop-shadow(0 0 14px rgba(255,196,0,.65))}
+.brand-text strong{display:block;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.brand-text span{color:var(--gold);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:900}
+nav{display:flex;align-items:center;gap:24px}
+nav a{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.13em;font-weight:900;text-transform:uppercase;opacity:.82;transition:.25s}
+nav a:hover{opacity:1;color:var(--gold);text-shadow:0 0 18px rgba(255,196,0,.75)}
+
+.hero{position:relative;z-index:2;min-height:92vh;padding:86px 7% 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+.kicker{display:inline-flex;gap:10px;align-items:center;color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.34em;text-transform:uppercase;margin-bottom:24px}
+.kicker::before{content:"";width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);box-shadow:0 0 18px var(--gold)}
+.hero h1{font-size:clamp(48px,6.4vw,96px);line-height:.88;letter-spacing:-.065em;text-transform:uppercase;margin-bottom:26px;text-shadow:0 14px 34px rgba(0,0,0,.65)}
+.hero h1 span{color:var(--gold);text-shadow:0 0 28px rgba(255,196,0,.35)}
+.hero p{max-width:650px;color:#e4e4e4;font-size:18px;line-height:1.78;margin-bottom:34px}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 28px;border-radius:999px;color:#050505;text-decoration:none;font-size:13px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold2),var(--gold),#a95f00);box-shadow:0 0 34px rgba(255,196,0,.36),inset 0 1px 0 rgba(255,255,255,.55);transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(255,196,0,.35)}
+.btn.outline{color:#fff;background:rgba(0,0,0,.42);border:1px solid var(--line);box-shadow:none}
+
+.logo-stage{position:relative;min-height:560px;display:grid;place-items:center}
+.logo-halo{position:absolute;width:min(560px,88vw);height:min(560px,88vw);border-radius:50%;background:radial-gradient(circle,rgba(255,196,0,.30),rgba(255,120,0,.08),transparent 66%);filter:blur(28px);animation:haloBreath 5s ease-in-out infinite}
+@keyframes haloBreath{0%,100%{transform:scale(.93);opacity:.70}50%{transform:scale(1.08);opacity:1}}
+.logo-frame{position:relative;width:min(560px,90vw);aspect-ratio:1/1;display:grid;place-items:center}
+.logo-frame::before{content:"";position:absolute;inset:12%;border-radius:50%;border:1px solid rgba(255,196,0,.24);box-shadow:0 0 34px rgba(255,196,0,.16),inset 0 0 28px rgba(255,196,0,.09);animation:spinRing 18s linear infinite}
+.logo-frame::after{content:"";position:absolute;inset:6%;border-radius:50%;border-top:2px solid rgba(255,196,0,.85);border-right:2px solid transparent;border-bottom:2px solid rgba(255,196,0,.25);border-left:2px solid transparent;filter:drop-shadow(0 0 18px var(--gold));animation:spinRing 8s linear infinite reverse}
+@keyframes spinRing{to{transform:rotate(360deg)}}
+.main-logo{position:relative;width:min(500px,86vw);max-height:500px;object-fit:contain;z-index:3;filter:drop-shadow(0 0 25px rgba(255,196,0,.65)) drop-shadow(0 36px 60px rgba(0,0,0,.85));animation:logoFloat 5.4s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-12px) scale(1.015)}}
+
+.section{position:relative;z-index:2;padding:92px 7%}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+.section-kicker{color:var(--gold);font-size:12px;letter-spacing:.34em;font-weight:900;text-transform:uppercase;margin-bottom:14px}
+.section h2{font-size:clamp(34px,4.4vw,66px);line-height:.95;letter-spacing:-.045em;text-transform:uppercase}
+.section p.lead{max-width:560px;color:#dcdcdc;line-height:1.7}
+
+.folder-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.folder-card{position:relative;min-height:230px;border:1px solid rgba(255,196,0,.28);border-radius:32px;background:linear-gradient(145deg,rgba(0,0,0,.78),rgba(38,25,3,.64));box-shadow:0 0 44px rgba(255,196,0,.12);display:flex;flex-direction:column;justify-content:space-between;padding:28px;text-decoration:none;color:#fff;overflow:hidden;transition:.32s}
+.folder-card::after{content:"";position:absolute;right:-55px;top:-55px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,196,0,.25),transparent 70%)}
+.folder-card:hover{transform:translateY(-8px);border-color:rgba(255,196,0,.72);box-shadow:0 26px 80px rgba(255,196,0,.20)}
+.folder-icon{font-size:42px;color:var(--gold);filter:drop-shadow(0 0 18px rgba(255,196,0,.65))}
+.folder-card h3{color:var(--gold);font-size:30px;text-transform:uppercase}
+.folder-card p{color:#d1d1d1;line-height:1.55}
+
+.site-grid,.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.site-card,.video-card{border:1px solid rgba(255,196,0,.28);border-radius:34px;background:linear-gradient(145deg,rgba(0,0,0,.78),rgba(38,25,3,.64));box-shadow:0 0 44px rgba(255,196,0,.12);padding:28px;transition:.32s}
+.site-card:hover,.video-card:hover{transform:translateY(-8px);border-color:rgba(255,196,0,.72);box-shadow:0 26px 80px rgba(255,196,0,.20)}
+.site-card h3,.video-card h3{color:var(--gold);font-size:26px;margin-bottom:14px}
+.site-card p,.video-card p{color:#cfcfcf;line-height:1.62}
+.site-card img{width:100%;height:240px;object-fit:cover;border-radius:22px;border:1px solid rgba(255,196,0,.26);margin:18px 0 22px;box-shadow:0 18px 42px rgba(0,0,0,.45)}
+.video-card video{width:100%;height:280px;object-fit:cover;border-radius:22px;border:1px solid rgba(255,196,0,.24);background:#000;box-shadow:0 18px 42px rgba(0,0,0,.45)}
+
+.gallery-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.art-card{height:390px;border:1px solid rgba(255,196,0,.28);border-radius:28px;background:rgba(0,0,0,.55);padding:12px;overflow:hidden;transition:.32s;box-shadow:0 0 36px rgba(255,196,0,.10)}
+.art-card:hover{transform:translateY(-8px);border-color:rgba(255,196,0,.72);box-shadow:0 26px 80px rgba(255,196,0,.20)}
+.art-card img{width:100%;height:100%;object-fit:contain;border-radius:20px;background:rgba(0,0,0,.35);filter:saturate(1.08) contrast(1.04);transition:.45s}
+.art-card:hover img{transform:scale(1.035);filter:saturate(1.18) contrast(1.12) brightness(1.08)}
+.logo-art img{object-fit:contain;padding:10px}
+.poster-art img{object-fit:contain}
+
+.contact{position:relative;z-index:2;margin:76px 7% 98px;padding:70px;border:1px solid rgba(255,196,0,.28);border-radius:38px;background:radial-gradient(circle at 20% 35%,rgba(255,196,0,.24),transparent 34%),linear-gradient(145deg,rgba(0,0,0,.80),rgba(35,24,3,.66));box-shadow:0 0 70px rgba(255,196,0,.16);overflow:hidden}
+.contact h2{font-size:clamp(36px,4.8vw,72px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase;margin-bottom:20px}
+.contact p{color:#e1e1e1;font-size:20px;line-height:1.65;margin-bottom:30px}
+.whatsapp{position:fixed;right:24px;bottom:24px;z-index:90;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:#050505;text-decoration:none;font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--gold2),var(--gold),#a95f00);box-shadow:0 0 28px rgba(255,196,0,.55);animation:wPulse 2.4s ease-in-out infinite}
+@keyframes wPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+footer{position:relative;z-index:2;padding:38px 7%;text-align:center;color:#cfcfcf;border-top:1px solid rgba(255,196,0,.20);background:rgba(0,0,0,.50)}
+
+@media(max-width:980px){
+  header{padding:16px 5%}nav{display:none}.brand-text{display:none}
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:64px}
+  .hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}
+  .logo-stage{min-height:420px}.main-logo{width:min(420px,90vw)}
+  .section-head{display:block}
+  .contact{padding:44px 28px}
+}
+@media(max-width:560px){
+  .hero h1{font-size:44px}.section{padding:70px 5%}
+  .art-card{height:330px}
+}
+
+/* INTRO PREMIUM INTEGRADA */
+.intro-premium{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#000;
+  transition:opacity .9s ease, visibility .9s ease;
+}
+.intro-premium.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.intro-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.88) contrast(1.12);
+}
+.intro-stage{
+  position:relative;
+  width:700px;
+  height:500px;
+  max-width:92vw;
+}
+.intro-ring{
+  position:absolute;
+  left:50%;
+  top:33%;
+  width:390px;
+  max-width:82vw;
+  transform:translate(-50%,-50%) scale(.2);
+  opacity:0;
+  animation:introRingIn 1s cubic-bezier(.18,.89,.32,1.3) forwards;
+  filter:drop-shadow(0 0 18px rgba(255,200,0,.7));
+}
+.intro-mn{
+  position:absolute;
+  left:50%;
+  top:33%;
+  width:255px;
+  max-width:48vw;
+  transform:translate(-50%,-50%) scale(.2);
+  opacity:0;
+  animation:introMnIn .9s ease 1s forwards;
+  filter:drop-shadow(0 0 12px rgba(255,215,0,.65));
+}
+.intro-name{
+  position:absolute;
+  left:50%;
+  top:44%;
+  width:435px;
+  max-width:78vw;
+  transform:translate(-50%,40px);
+  opacity:0;
+  animation:introNameIn .8s ease 1.8s forwards;
+  filter:drop-shadow(0 0 10px rgba(255,215,0,.45));
+}
+.intro-orbs{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.intro-orb{
+  position:absolute;
+  top:-40px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffe78f 0%, #ffc400 45%, #ff9900 100%);
+  box-shadow:0 0 8px rgba(255,210,0,.9),0 0 20px rgba(255,170,0,.6);
+  animation:introOrbFall linear infinite;
+  opacity:.88;
+}
+.intro-loader{
+  position:absolute;
+  left:50%;
+  bottom:38px;
+  transform:translateX(-50%);
+  width:300px;
+  max-width:72vw;
+  text-align:center;
+  opacity:0;
+  animation:introLoaderIn .8s ease 2.2s forwards;
+}
+.intro-loader p{
+  color:#ffcc33;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:4px;
+  margin-bottom:10px;
+}
+.intro-bar{
+  width:100%;
+  height:5px;
+  background:rgba(255,255,255,.08);
+  border-radius:999px;
+  overflow:hidden;
+  border:1px solid rgba(255,200,0,.35);
+}
+.intro-bar span{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#ff9900,#ffe066);
+  animation:introLoad 6s ease 2.5s forwards;
+}
+@keyframes introRingIn{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}
+  70%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+@keyframes introMnIn{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+@keyframes introNameIn{
+  0%{opacity:0;transform:translate(-50%,40px)}
+  100%{opacity:1;transform:translate(-50%,0)}
+}
+@keyframes introOrbFall{
+  0%{transform:translateY(-50px);opacity:0}
+  10%{opacity:.85}
+  100%{transform:translateY(110vh);opacity:0}
+}
+@keyframes introLoaderIn{to{opacity:1}}
+@keyframes introLoad{to{width:100%}}
+
+@media(max-width:768px){
+  .intro-stage{width:92vw;height:420px}
+  .intro-ring{width:82vw}
+  .intro-mn{width:46vw}
+  .intro-name{width:78vw;top:45%}
+}
+
+
+/* AJUSTE PREMIUM ADESIVOS */
+#adesivos .gallery-strip{
+    min-height:auto !important;
+    padding:35px 20px !important;
+}
+#adesivos .art-card{
+    padding:20px !important;
+    max-width:520px;
+    margin:auto;
+}
+#adesivos .art-card img{
+    max-height:340px;
+    object-fit:contain;
+}
+
+
+.mobile-menu-btn{display:none;width:48px;height:48px;border:1px solid rgba(255,196,0,.45);border-radius:16px;color:#050505;background:linear-gradient(135deg,var(--gold2),var(--gold),#a95f00);font-size:24px;font-weight:900;cursor:pointer;box-shadow:0 0 24px rgba(255,196,0,.28)}
+.mobile-menu-panel{position:fixed;top:0;right:-330px;width:min(320px,86vw);height:100vh;z-index:99998;padding:26px;background:linear-gradient(145deg,rgba(0,0,0,.96),rgba(38,25,3,.92));border-left:1px solid rgba(255,196,0,.35);box-shadow:-30px 0 80px rgba(0,0,0,.72);backdrop-filter:blur(20px);transition:.36s ease;display:flex;flex-direction:column;gap:10px}
+.mobile-menu-panel.open{right:0}.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;margin-bottom:8px;border-bottom:1px solid rgba(255,196,0,.22)}.mobile-menu-head strong{color:var(--gold);font-size:18px;letter-spacing:.12em;text-transform:uppercase}.mobile-menu-head button{width:42px;height:42px;border:1px solid rgba(255,196,0,.35);border-radius:14px;color:#fff;background:rgba(255,255,255,.06);font-size:28px;cursor:pointer}.mobile-menu-panel a{color:#fff;text-decoration:none;padding:15px 16px;border-radius:18px;font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,196,0,.10);background:rgba(255,255,255,.035)}.mobile-menu-panel a:hover{color:#050505;background:linear-gradient(135deg,var(--gold2),var(--gold),#a95f00)}.mobile-menu-backdrop{position:fixed;inset:0;z-index:99997;background:rgba(0,0,0,.60);opacity:0;visibility:hidden;transition:.3s ease}.mobile-menu-backdrop.open{opacity:1;visibility:visible}
+.system-showcase{margin-bottom:28px}.system-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center;padding:34px;border:1px solid rgba(255,196,0,.30);border-radius:38px;background:radial-gradient(circle at 20% 15%,rgba(255,196,0,.20),transparent 34%),linear-gradient(145deg,rgba(0,0,0,.82),rgba(34,24,4,.68));box-shadow:0 0 58px rgba(255,196,0,.13);overflow:hidden}.system-badge{display:inline-flex;color:#050505;background:linear-gradient(135deg,var(--gold2),var(--gold),#a95f00);border-radius:999px;padding:10px 16px;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}.system-copy h3{color:var(--gold);font-size:clamp(30px,3.2vw,52px);line-height:.98;margin-bottom:18px;text-transform:uppercase}.system-copy p{color:#e3e3e3;line-height:1.72;font-size:17px}.system-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.system-tags span{padding:10px 14px;border-radius:999px;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,196,0,.22);font-size:12px;font-weight:900;letter-spacing:.08em}.device-frame{padding:14px;border-radius:30px;background:linear-gradient(145deg,rgba(255,196,0,.24),rgba(255,255,255,.04));border:1px solid rgba(255,196,0,.30);box-shadow:0 22px 60px rgba(0,0,0,.55)}.device-frame img{width:100%;height:350px;object-fit:cover;object-position:top center;border-radius:22px;border:1px solid rgba(255,196,0,.20)}
+.system-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}.system-card{padding:18px;border:1px solid rgba(255,196,0,.28);border-radius:30px;background:linear-gradient(145deg,rgba(0,0,0,.78),rgba(38,25,3,.64));box-shadow:0 0 44px rgba(255,196,0,.10);transition:.32s}.system-card:hover{transform:translateY(-8px);border-color:rgba(255,196,0,.72);box-shadow:0 26px 80px rgba(255,196,0,.20)}.system-card img{width:100%;height:220px;object-fit:cover;object-position:top center;border-radius:22px;border:1px solid rgba(255,196,0,.22);margin-bottom:18px}.system-card h3{color:var(--gold);font-size:23px;margin-bottom:10px}.system-card p{color:#cfcfcf;line-height:1.58}
+#adesivos{padding-top:70px;padding-bottom:58px}#adesivos .gallery-strip{max-width:620px;margin:0 auto;grid-template-columns:1fr}#adesivos .art-card{height:auto;min-height:0;padding:22px}#adesivos .art-card img{height:auto;max-height:330px;object-fit:contain}
+@media(max-width:980px){.mobile-menu-btn{display:grid;place-items:center}nav{display:none}.system-feature{grid-template-columns:1fr;padding:24px}.device-frame img{height:260px}}
+@media(max-width:560px){.brand img{width:104px}.mobile-menu-btn{width:44px;height:44px}.system-card img{height:210px}#adesivos .art-card img{max-height:280px}}
+
+
+/* CORREÇÃO DA GALERIA DE CARTAZES */
+#cartazes .gallery-strip{
+  align-items:start;
+}
+#cartazes .art-card{
+  height:430px;
+}
+#cartazes .art-card img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+@media(max-width:560px){
+  #cartazes .art-card{
+    height:390px;
+  }
+}
+
+
+/* NOVAS LOGOS */
+#logos .art-card{
+  height:340px;
+}
+#logos .art-card img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+
+/* AJUSTE NOVAS LOGOS E ADESIVOS */
+#logos .logo-art img,
+#adesivos .sticker-art img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+#adesivos .gallery-strip{
+  max-width:1200px !important;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr)) !important;
+}
+#adesivos .sticker-art{
+  min-height:320px !important;
+  height:360px !important;
+}
+#adesivos .sticker-art img{
+  max-height:310px !important;
+}
+@media(max-width:560px){
+  #adesivos .sticker-art{
+    height:320px !important;
+  }
+}
+
+</style>
+<link rel="icon" type="image/png" href="assets/logo.png">
+
+<style>
+html, body, a, button, input, textarea, select {
+  cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur824.cur'), auto !important;
+}
+
+a:hover, button:hover {
+  cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur824.cur'), pointer !important;
+}
+
+.cursor-gold {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  background: radial-gradient(circle, rgba(255,215,0,0.95) 0%, rgba(255,215,0,0.2) 60%, transparent 100%);
+  box-shadow: 0 0 15px gold, 0 0 30px rgba(255,215,0,0.7);
+}
+</style>
+
+
+<style>
+.cursor-gold{
+  width:16px !important;
+  height:16px !important;
+  opacity:0.9;
+  filter: blur(0.3px);
+}
+</style>
+
+</head>
+<body>
+
+<div class="intro-premium" id="introPremium">
+  <img src="assets/intro-fundo.png" class="intro-bg" alt="">
+  <div class="intro-orbs" id="introOrbs"></div>
+  <div class="intro-stage">
+    <img src="assets/intro-arco.png" class="intro-ring" alt="">
+    <img src="assets/intro-mn.png" class="intro-mn" alt="">
+    <img src="assets/intro-nome.png" class="intro-name" alt="">
+  </div>
+  <div class="intro-loader">
+    <p>CARREGANDO EXPERIÊNCIA</p>
+    <div class="intro-bar"><span></span></div>
+  </div>
+</div>
+
+
+</div>
+
+<div class="particles" id="particles"></div>
+
+<header>
+  <a class="brand" href="#inicio">
+    <img src="assets/logo.png" alt="Logo Maximylian Nascimento">
+    <div class="brand-text"><strong>Maximylian Nascimento</strong><span>Designer Gráfico • Web Designer</span></div>
+  </a>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#pastas">Portfólio</a>
+    <a href="#sites">Sites</a>
+    <a href="#sistemas">Sistemas</a>
+    <a href="#logos">Logos</a>
+    <a href="#cartazes">Cartazes</a>
+    <a href="#adesivos">Adesivos</a>
+    <a href="#videos">Vídeos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">☰</button>
+</header>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+  <div class="mobile-menu-head"><strong>Menu</strong><button id="mobileMenuClose" aria-label="Fechar menu">×</button></div>
+  <a href="#inicio">Início</a><a href="#pastas">Portfólio</a><a href="#sites">Sites</a><a href="#sistemas">Sistemas</a><a href="#logos">Logos</a><a href="#cartazes">Cartazes</a><a href="#adesivos">Adesivos</a><a href="#videos">Vídeos</a><a href="#contato">Contato</a>
+</div>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="reveal">
+    <div class="kicker">Portfólio profissional</div>
+    <h1>Design que faz sua marca <span>aparecer</span></h1>
+    <p>Criações visuais para igrejas, negócios, eventos e marcas que precisam transmitir presença, valor e profissionalismo.</p>
+    <div class="actions">
+      <a class="btn" href="#pastas">Ver portfólio</a>
+      <a class="btn outline" href="https://api.whatsapp.com/send?phone=5581998346828&text=Ol%C3%A1%2C%20Maximylian%21%20%F0%9F%91%8B%0A%0AAcabei%20de%20visitar%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.%0A%0ATenho%20interesse%20em%3A%0A%E2%80%A2%20Logo%0A%E2%80%A2%20Cartaz%0A%E2%80%A2%20Site%0A%E2%80%A2%20Motion%20Design%0A%E2%80%A2%20Arte%20para%20redes%20sociais%0A%0APode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F%20%F0%9F%8E%A8%E2%9C%A8" target="_blank">Chamar no WhatsApp</a>
+    </div>
+  </div>
+  <div class="logo-stage reveal">
+    <div class="logo-halo"></div>
+    <div class="logo-frame"><img class="main-logo" src="assets/logo.png" alt="Maximylian Nascimento"></div>
+  </div>
+</section>
+
+<section class="section" id="pastas">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Organização</div><h2>Portfólio por categoria</h2></div>
+    <p class="lead">Agora os trabalhos ficam separados por tipo: logos, cartazes, sites e vídeos, deixando o visual mais limpo e profissional.</p>
+  </div>
+
+  <div class="folder-grid">
+    <a class="folder-card reveal" href="#sistemas">
+      <div class="folder-icon">▦</div>
+      <div><h3>Sistemas</h3><p>Painéis administrativos, dashboards e áreas internas.</p></div>
+    </a>
+    <a class="folder-card reveal" href="#logos">
+      <div class="folder-icon">◆</div>
+      <div><h3>Logos</h3><p>Identidades visuais, marcas e logos ministeriais.</p></div>
+    </a>
+    <a class="folder-card reveal" href="#cartazes">
+      <div class="folder-icon">▣</div>
+      <div><h3>Cartazes</h3><p>Artes para cultos, eventos, campanhas e divulgações.</p></div>
+    </a>
+    <a class="folder-card reveal" href="#sites">
+      <div class="folder-icon">◈</div>
+      <div><h3>Sites</h3><p>Projetos publicados com link de acesso.</p></div>
+    </a>
+    <a class="folder-card reveal" href="#adesivos">
+      <div class="folder-icon">◎</div>
+      <div><h3>Adesivos</h3><p>Etiquetas, embalagens e artes promocionais.</p></div>
+    </a>
+    <a class="folder-card reveal" href="#videos">
+      <div class="folder-icon">▶</div>
+      <div><h3>Vídeos</h3><p>Apresentações e motion design.</p></div>
+    </a>
+  </div>
+</section>
+
+<section class="section" id="sites">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Sites publicados</div><h2>Sites</h2></div>
+    <p class="lead">Projetos online com visual próprio e acesso direto.</p>
+  </div>
+  <div class="site-grid">
+    <article class="site-card reveal">
+      <h3>Andreza Cakes</h3>
+      <p>Site de confeitaria artesanal com catálogo e experiência para encomendas.</p>
+      <img src="assets/andreza-site.png" alt="Print do site Andreza Cakes">
+      <a class="btn" href="https://andrezacakes.github.io/andrezacakes/" target="_blank">Visitar site</a>
+    </article>
+    <article class="site-card reveal">
+      <h3>Igreja Renovada</h3>
+      <p>Site institucional com cultos, galeria, oração, localização e louvor.</p>
+      <img src="assets/igreja-site.png" alt="Print do site da Igreja">
+      <a class="btn" href="https://igreja-alianca-c-cristo.github.io/" target="_blank">Visitar site</a>
+    </article>
+  </div>
+</section>
+
+
+<section class="section" id="sistemas">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Painéis administrativos</div><h2>Sistemas</h2></div>
+    <p class="lead">Painéis inteligentes para empresas e igrejas, com área interna, controle financeiro, pedidos, relatórios, agenda e gerenciamento personalizado.</p>
+  </div>
+
+  <div class="system-showcase">
+    <article class="system-feature reveal">
+      <div class="system-copy">
+        <span class="system-badge">Projeto Web + Administrativo</span>
+        <h3>Soluções completas além do site</h3>
+        <p>Criação de áreas administrativas para o cliente gerenciar informações, acompanhar dados e organizar o atendimento em um painel visual, moderno e responsivo.</p>
+        <div class="system-tags"><span>Dashboard</span><span>Login</span><span>Relatórios</span><span>Controle</span></div>
+      </div>
+      <div class="device-frame"><img src="assets/sistema-tesouraria-painel.png" alt="Painel administrativo de tesouraria"></div>
+    </article>
+  </div>
+
+  <div class="system-grid">
+    <article class="system-card reveal"><img src="assets/sistema-tesouraria-login.png" alt="Login administrativo tesouraria"><h3>Login Seguro</h3><p>Área protegida para acesso interno, com tela de entrada simples, elegante e profissional.</p></article>
+    <article class="system-card reveal"><img src="assets/sistema-tesouraria-painel.png" alt="Painel financeiro igreja"><h3>Tesouraria Igreja</h3><p>Controle de entradas, saídas, saldo mensal, saldo geral, lançamentos e relatórios.</p></article>
+    <article class="system-card reveal"><img src="assets/sistema-andreza-painel.png" alt="Painel Andreza Cakes"><h3>Painel Andreza Cakes</h3><p>Dashboard para pedidos, clientes, produtos, agenda, financeiro, relatórios e configurações.</p></article>
+    <article class="system-card reveal"><img src="assets/sistema-andreza-login.png" alt="Login Andreza Cakes"><h3>Área Administrativa</h3><p>Tela de acesso personalizada com identidade visual da marca e experiência responsiva.</p></article>
+  </div>
+</section>
+
+<section class="section" id="logos">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Identidade visual</div><h2>Logos</h2></div>
+    <p class="lead">Área limpa para mostrar somente marcas e identidades visuais.</p>
+  </div>
+  <div class="gallery-strip">
+    <article class="art-card logo-art reveal"><img src="assets/grupo-homens.jpeg" alt="Logo Grupo dos Homens"></article>
+    <article class="art-card logo-art reveal"><img src="assets/agape.jpeg" alt="Logo Grupo de Dança Ágape"></article>
+    <article class="art-card logo-art reveal"><img src="assets/logo-igreja.png" alt="Logo Igreja Renovada"></article>
+      <article class="art-card logo-art reveal"><img src="assets/andreza-cakes-logo.png" alt="Logo Andreza Cakes"></article>
+
+    <article class="art-card logo-art reveal"><img src="assets/festa-fish.png" alt="Festa Fish"></article>
+    <article class="art-card logo-art reveal"><img src="assets/prof-leonardo.png" alt="Prof Leonardo"></article>
+    <article class="art-card logo-art reveal"><img src="assets/fernanda-franca-logo.png" alt="Fernanda França"></article>
+    <article class="art-card logo-art reveal"><img src="assets/av-forros.png" alt="AV Forros"></article>
+
+  
+    <article class="art-card logo-art reveal">
+      <img src="assets/softnasci_fundo.jpeg" alt="SoftNasci">
+    </article>
+
+
+    <article class="art-card logo-art reveal">
+      <img src="assets/logo-melodia-divina.png" alt="Logo Criatório Melodia Divina">
+    </article>
+
+</div>
+</section>
+
+<section class="section" id="cartazes">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Divulgação visual</div><h2>Cartazes</h2></div>
+    <p class="lead">Artes organizadas sem textos repetidos embaixo, deixando o foco totalmente no visual.</p>
+  </div>
+  <div class="gallery-strip">
+    <article class="art-card poster-art reveal"><img src="assets/avivamento.jpeg" alt="Cartaz"></article>
+    <article class="art-card poster-art reveal"><img src="assets/seis-anos.jpeg" alt="Cartaz"></article>
+    <article class="art-card poster-art reveal"><img src="assets/santa-ceia.jpeg" alt="Cartaz"></article>
+    <article class="art-card poster-art reveal"><img src="assets/circulo-azul.jpeg" alt="Cartaz"></article>
+    <article class="art-card poster-art reveal"><img src="assets/circulo-roxo.jpeg" alt="Cartaz"></article>
+    <article class="art-card poster-art reveal"><img src="assets/circulo-preto.jpeg" alt="Cartaz"></article>
+    <article class="art-card poster-art reveal"><img src="assets/circulo-dourado.jpeg" alt="Cartaz"></article>
+  
+    <article class="art-card poster-art reveal"><img src="assets/cartaz-dia-das-maes.jpeg" alt="Cartaz Dia das Mães"></article>
+    <article class="art-card poster-art reveal"><img src="assets/cartaz-fernanda-franca.jpeg" alt="Cartaz Fernanda França"></article>
+
+  </div>
+</section>
+<section class="section" id="adesivos">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Embalagem e divulgação</div><h2>Adesivos</h2></div>
+    <p class="lead">Artes para etiquetas, embalagens, datas comemorativas e materiais promocionais.</p>
+  </div>
+  <div class="gallery-strip">
+    <article class="art-card logo-art reveal"><img src="assets/pascoa-andreza.png" alt="Adesivo de Páscoa Andreza Cakes"></article>
+  
+    <article class="art-card sticker-art reveal">
+      <img src="assets/adesivo-feito-com-amor.png" alt="Adesivo Andreza Cakes Feito com Amor">
+    </article>
+    <article class="art-card sticker-art reveal">
+      <img src="assets/adesivo-mini-bolo.png" alt="Adesivo Mini Bolo no Pote">
+    </article>
+    <article class="art-card sticker-art reveal">
+      <img src="assets/adesivo-pudim.png" alt="Adesivo Delícia de Pudim">
+    </article>
+
+</div>
+</section>
+
+<section class="section" id="videos">
+  <div class="section-head reveal">
+    <div><div class="section-kicker">Motion</div><h2>Vídeos</h2></div>
+    <p class="lead">Apresentações animadas e conteúdos curtos para redes sociais.</p>
+  </div>
+  <div class="video-grid">
+    <article class="video-card reveal"><video src="assets/video-andreza.mp4" controls muted playsinline preload="metadata"></video><h3>Vigília Avivamento</h3></article>
+    <article class="video-card reveal"><video src="assets/video-motion-01.mp4" controls muted playsinline preload="metadata"></video><h3>Promoção Páscoa Andreza Cakes</h3></article>
+    <article class="video-card reveal"><video src="assets/video-motion-02.mp4" controls muted playsinline preload="metadata"></video><h3>Plantão Urgente / Motion News</h3></article>
+  </div>
+</section>
+
+<section class="contact reveal" id="contato">
+  <h2>Vamos criar algo premium?</h2>
+  <p>Entre em contato pelo WhatsApp e solicite uma logo, cartaz, banner, vídeo ou site profissional.</p>
+  <a class="btn" href="https://api.whatsapp.com/send?phone=5581998346828&text=Ol%C3%A1%2C%20Maximylian%21%20%F0%9F%91%8B%0A%0AAcabei%20de%20visitar%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.%0A%0ATenho%20interesse%20em%3A%0A%E2%80%A2%20Logo%0A%E2%80%A2%20Cartaz%0A%E2%80%A2%20Site%0A%E2%80%A2%20Motion%20Design%0A%E2%80%A2%20Arte%20para%20redes%20sociais%0A%0APode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F%20%F0%9F%8E%A8%E2%9C%A8" target="_blank">Falar no WhatsApp</a>
+</section>
+</main>
+
+<a class="whatsapp" href="https://api.whatsapp.com/send?phone=5581998346828&text=Ol%C3%A1%2C%20Maximylian%21%20%F0%9F%91%8B%0A%0AAcabei%20de%20visitar%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.%0A%0ATenho%20interesse%20em%3A%0A%E2%80%A2%20Logo%0A%E2%80%A2%20Cartaz%0A%E2%80%A2%20Site%0A%E2%80%A2%20Motion%20Design%0A%E2%80%A2%20Arte%20para%20redes%20sociais%0A%0APode%20me%20passar%20mais%20informa%C3%A7%C3%B5es%3F%20%F0%9F%8E%A8%E2%9C%A8" target="_blank">✆</a>
+<footer>© Maximylian Nascimento — Designer Gráfico • Web Designer</footer>
+
+<script>
+
+const particles=document.getElementById("particles");
+for(let i=0;i<76;i++){const s=document.createElement("span");s.style.left=Math.random()*100+"vw";s.style.animationDuration=(5+Math.random()*10)+"s";s.style.animationDelay=(Math.random()*8)+"s";s.style.opacity=Math.random();particles.appendChild(s)}
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("show");observer.unobserve(entry.target)}})},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+const introOrbs = document.getElementById("introOrbs");
+if(introOrbs){
+  for(let i=0;i<26;i++){
+    const b=document.createElement("div");
+    b.className="intro-orb";
+    const size = 3 + Math.random()*8;
+    b.style.width=size+"px";
+    b.style.height=size+"px";
+    b.style.left=Math.random()*100+"vw";
+    b.style.animationDuration=(18 + Math.random()*14)+"s";
+    b.style.animationDelay=(Math.random()*8)+"s";
+    introOrbs.appendChild(b);
+  }
+}
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    const intro = document.getElementById("introPremium");
+    if(intro) intro.classList.add("hide");
+  }, 9200);
+});
+
+
+const mobileMenuBtn=document.getElementById("mobileMenuBtn");
+const mobileMenuPanel=document.getElementById("mobileMenuPanel");
+const mobileMenuBackdrop=document.getElementById("mobileMenuBackdrop");
+const mobileMenuClose=document.getElementById("mobileMenuClose");
+function openMobileMenu(){if(mobileMenuPanel) mobileMenuPanel.classList.add("open");if(mobileMenuBackdrop) mobileMenuBackdrop.classList.add("open")}
+function closeMobileMenu(){if(mobileMenuPanel) mobileMenuPanel.classList.remove("open");if(mobileMenuBackdrop) mobileMenuBackdrop.classList.remove("open")}
+if(mobileMenuBtn) mobileMenuBtn.addEventListener("click",openMobileMenu);
+if(mobileMenuClose) mobileMenuClose.addEventListener("click",closeMobileMenu);
+if(mobileMenuBackdrop) mobileMenuBackdrop.addEventListener("click",closeMobileMenu);
+document.querySelectorAll(".mobile-menu-panel a").forEach(a=>a.addEventListener("click",closeMobileMenu));
+
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for (const registration of registrations) {
+      registration.unregister();
+    }
+  });
+}
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const cursor = document.createElement('div');
+  cursor.classList.add('cursor-gold');
+  document.body.appendChild(cursor);
+
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = (e.clientX - 10) + 'px';
+    cursor.style.top = (e.clientY - 10) + 'px';
+  });
+});
+</script>
+
+</body>
+</html>
